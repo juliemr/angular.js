@@ -101,6 +101,11 @@ module.exports = function(grunt) {
     },
 
 
+    runprotractor: {
+      normal: 'protractor-conf.js'
+    },
+
+
     clean: {
       build: ['build'],
       tmp: ['tmp']
@@ -290,6 +295,8 @@ module.exports = function(grunt) {
   grunt.registerTask('test:docs', 'Run the doc-page tests with Karma', ['package', 'tests:docs']);
   grunt.registerTask('test:unit', 'Run unit, jQuery and Karma module tests with Karma', ['tests:jqlite', 'tests:jquery', 'tests:modules']);
   grunt.registerTask('test:e2e', 'Run the end to end tests with Karma and keep a test server running in the background', ['connect:testserver', 'tests:end2end']);
+  // This should eventually replace test:e2e
+  grunt.registerTask('protractor', 'Run the end to end tests with Protractor and keep a test server running in the background', ['connect:testserver', 'runprotractor:normal']);
   grunt.registerTask('test:docgen', ['jasmine_node']);
   grunt.registerTask('test:promises-aplus',['build:promises-aplus-adapter','shell:promises-aplus-tests']);
 

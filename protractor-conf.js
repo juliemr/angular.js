@@ -1,7 +1,5 @@
 // A reference configuration file.
 exports.config = {
-  seleniumAddress: 'http://localhost:4444/wd/hub',
-
   // The timeout for each script run on the browser. This should be longer
   // than the maximum time your application needs to stabilize between tasks.
   allScriptsTimeout: 11000,
@@ -30,4 +28,8 @@ exports.config = {
   baseUrl: 'http://localhost:8000/build/docs/',
 
   framework: 'jasmine',
+
+  jasmineNodeOpts: {
+    defaultTimeoutInterval: 30000
+  }
 };
