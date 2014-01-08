@@ -29,6 +29,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     NG_VERSION: NG_VERSION,
 
+    // TODO(juliemr): Why is there both this and the travis build.sh??
     parallel: {
       travis: {
         tasks: [

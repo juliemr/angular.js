@@ -21,6 +21,13 @@ exports.config = {
     'browserName': 'chrome'
   },
 
+  // For travis:
+  // We want to run grunt protractor somewhere on the travis VM. 
+  // Want to use saucelabs for the webdriver browser.
+  // sauceUser... make a new config with that added.
+  // What do we need to do to make sure that saucelabs can see the server started
+  // with connect:testserver? 
+
   // ----- More information for your tests ----
   //
   // A base URL for your application under test. Calls to protractor.get()
