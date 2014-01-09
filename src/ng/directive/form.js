@@ -305,18 +305,21 @@ function FormController(element, attrs) {
          <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br>
         </form>
       </doc:source>
-      <doc:scenario>
+      <doc:protractor>
         it('should initialize to model', function() {
-         expect(binding('userType')).toEqual('guest');
-         expect(binding('myForm.input.$valid')).toEqual('true');
+          expect(element(by.binding('userType')).getText()).toMatch('guest');
+          expect(element(by.binding('myForm.input.$valid')).getText()).toMatch('true');
         });
 
         it('should be invalid if empty', function() {
-         input('userType').enter('');
-         expect(binding('userType')).toEqual('');
-         expect(binding('myForm.input.$valid')).toEqual('false');
+          var userType = element(by.model('userType'));
+          userType.clear();
+          userType.sendKeys('');
+
+          expect(element(by.binding('userType')).getText()).toEqual('userType =');
+          expect(element(by.binding('myForm.input.$valid')).getText()).toMatch('false');
         });
-      </doc:scenario>
+      </doc:protractor>
     </doc:example>
  */
 var formDirectiveFactory = function(isNgForm) {
