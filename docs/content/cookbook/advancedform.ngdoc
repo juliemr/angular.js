@@ -89,25 +89,31 @@ detection, and preventing invalid form submission.
    <pre>form={{form}}</pre>
    </div>
 </doc:source>
-<doc:scenario>
+<doc:protractor>
+  var saveButton = element(by.css('[ng-click="save()"]'));
+  var cancelButton = element(by.css('[ng-click="cancel()"]'));
+  var nameInput = element(by.model('form.name'));
+
   it('should enable save button', function() {
-    expect(element(':button:contains(Save)').attr('disabled')).toBeTruthy();
-    input('form.name').enter('');
-    expect(element(':button:contains(Save)').attr('disabled')).toBeTruthy();
-    input('form.name').enter('change');
-    expect(element(':button:contains(Save)').attr('disabled')).toBeFalsy();
-    element(':button:contains(Save)').click();
-    expect(element(':button:contains(Save)').attr('disabled')).toBeTruthy();
+    expect(saveButton.getAttribute('disabled')).toBeTruthy();
+    nameInput.clear();
+    nameInput.sendKeys('');
+    expect(saveButton.getAttribute('disabled')).toBeTruthy();
+    nameInput.sendKeys('change');
+    saveButton.click();
+    expect(saveButton.getAttribute('disabled')).toBeTruthy();
   });
+
   it('should enable cancel button', function() {
-    expect(element(':button:contains(Cancel)').attr('disabled')).toBeTruthy();
-    input('form.name').enter('change');
-    expect(element(':button:contains(Cancel)').attr('disabled')).toBeFalsy();
-    element(':button:contains(Cancel)').click();
-    expect(element(':button:contains(Cancel)').attr('disabled')).toBeTruthy();
-    expect(element(':input[ng\\:model="form.name"]').val()).toEqual('John Smith');
+    expect(cancelButton.getAttribute('disabled')).toBeTruthy();
+    nameInput.clear();
+    nameInput.sendKeys('change');
+    expect(cancelButton.getAttribute('disabled')).toBeFalsy();
+    cancelButton.click();
+    expect(cancelButton.getAttribute('disabled')).toBeTruthy();
+    expect(nameInput.getAttribute('value')).toEqual('John Smith');
   });
-</doc:scenario>
+</doc:protractor>
 </doc:example>
 
 
