@@ -122,7 +122,8 @@ var $sanitizeMinErr = angular.$$minErr('$sanitize');
      it('should update', function() {
        element(by.model('snippet')).clear();
        element(by.model('snippet')).sendKeys('new <b onclick="alert(1)">text</b>');
-       expect(element(by.css('#bind-html-with-sanitize div')).getInnerHtml()).toBe('new <b>text</b>');
+       expect(element(by.css('#bind-html-with-sanitize div')).getInnerHtml()).
+         toBe('new <b>text</b>');
        expect(element(by.css('#bind-html-with-trust div')).getInnerHtml()).toBe(
          'new <b onclick="alert(1)">text</b>');
        expect(element(by.css('#bind-default div')).getInnerHtml()).toBe(
