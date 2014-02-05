@@ -13,8 +13,7 @@ module.exports = function(config) {
     { pattern: '**/*.ngdoc', basePath: path.resolve(packagePath, 'content') }
   ]);
 
-  config.set('rendering.outputFolder', 'build');
-  config.set('rendering.cleanOutputFolder', true);
+  config.set('rendering.outputFolder', '../build/docs');
 
   config.set('logging.level', 'debug');
 
