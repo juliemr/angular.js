@@ -12,8 +12,10 @@ var express = require('express');
 // Gulp can then wait for the stream to close before starting dependent tasks.
 // See clean and bower for async tasks, and see assets and doc-gen for dependent tasks below
 
+var outputFolder = '../build/docs';
+
 gulp.task('clean', function() {
-  return gulp.src('../build/docs', { read: false })
+  return gulp.src(outputFolder, { read: false })
   .pipe(rimraf());
 });
 
@@ -24,17 +26,17 @@ gulp.task('bower', function() {
 gulp.task('build-app', ['clean'], function() {
   gulp.src('app/src/**/*.js')
     .pipe(concat('docs.js'))
-    .pipe(gulp.dest('../build/docs/js/'));
+    .pipe(gulp.dest(outputFolder + '/js/'));
 });
 
 gulp.task('assets', ['bower', 'clean'], function() {
   return merge(
-    gulp.src(['app/assets/**/*']).pipe(gulp.dest('build')),
-    gulp.src('bower_components/open-sans-fontface/**/*').pipe(gulp.dest('../build/docs/components/open-sans-fontface')),
-    gulp.src('bower_components/lunr.js/*.js').pipe(gulp.dest('../build/docs/components/lunr.js')),
-    gulp.src('bower_components/google-code-prettify/**/*').pipe(gulp.dest('../build/docs/components/google-code-prettify/')),
-    gulp.src('bower_components/jquery/*.js').pipe(gulp.dest('../build/docs/components/jquery')),
-    gulp.src('node_modules/marked/**/*.js').pipe(gulp.dest('../build/docs/components/marked'))
+    gulp.src(['app/assets/**/*']).pipe(gulp.dest(outputFolder)),
+    gulp.src('bower_components/open-sans-fontface/**/*').pipe(gulp.dest(outputFolder + '/components/open-sans-fontface')),
+    gulp.src('bower_components/lunr.js/*.js').pipe(gulp.dest(outputFolder + '/components/lunr.js')),
+    gulp.src('bower_components/google-code-prettify/**/*').pipe(gulp.dest(outputFolder + '/components/google-code-prettify/')),
+    gulp.src('bower_components/jquery/*.js').pipe(gulp.dest(outputFolder + '/components/jquery')),
+    gulp.src('node_modules/marked/**/*.js').pipe(gulp.dest(outputFolder + '/components/marked'))
   );
 });
 
@@ -72,10 +74,10 @@ gulp.task('server', function() {
   // Log requests to the console
   app.use(express.logger());
   // If the file exists then supply it
-  app.use(express.static('../build/docs'));
+  app.use(express.static(outputFolder));
   // Otherwise just send the index.html for other files to support HTML5Mode
   app.all('/*', function(req, res) {
-    res.sendfile(indexPage, { root: '../build/docs' });
+    res.sendfile(indexPage, { root: outputFolder });
   });
   app.listen(port, function() {
     gutil.log('Server listening on port', gutil.colors.magenta(port));
