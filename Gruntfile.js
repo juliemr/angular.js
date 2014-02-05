@@ -217,9 +217,9 @@ module.exports = function(grunt) {
     },
 
 
-    docs: {
-      process: ['build/docs/*.html', 'build/docs/.htaccess']
-    },
+    // docs: {
+    //   process: ['build/docs/*.html', 'build/docs/.htaccess']
+    // },
 
     "jasmine_node": {
       projectRoot: 'docs/spec'
