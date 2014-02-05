@@ -1689,7 +1689,7 @@ angular.mock.$RootElementProvider = function() {
 };
 
 /**
- * @ngdoc overview
+ * @ngdoc module
  * @name ngMock
  * @description
  *
@@ -1716,7 +1716,7 @@ angular.module('ngMock', ['ng']).provider({
 }]);
 
 /**
- * @ngdoc overview
+ * @ngdoc module
  * @name ngMockE2E
  * @description
  *

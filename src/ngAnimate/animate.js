@@ -2,7 +2,7 @@
 /* jshint maxlen: false */
 
 /**
- * @ngdoc overview
+ * @ngdoc module
  * @name ngAnimate
  * @description
  *
