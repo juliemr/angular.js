@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngPluralize
+ * @name directive:ngPluralize
  * @restrict EA
  *
  * @description

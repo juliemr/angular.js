@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngCsp
+ * @name directive:ngCsp
  *
  * @element html
  * @description

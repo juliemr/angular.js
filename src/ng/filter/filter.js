@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc filter
- * @name ng.filter:filter
+ * @name filter:filter
  * @function
  *
  * @description

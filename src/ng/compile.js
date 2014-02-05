@@ -19,8 +19,8 @@
 
 
 /**
- * @ngdoc function
- * @name ng.$compile
+ * @ngdoc service
+ * @name $compile
  * @function
  *
  * @description
@@ -491,8 +491,8 @@
 var $compileMinErr = minErr('$compile');
 
 /**
- * @ngdoc service
- * @name ng.$compileProvider
+ * @ngdoc provider
+ * @name $compileProvider
  * @function
  *
  * @description
@@ -510,9 +510,8 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
   var EVENT_HANDLER_ATTR_REGEXP = /^(on[a-z]+|formaction)$/;
 
   /**
-   * @ngdoc function
-   * @name ng.$compileProvider#directive
-   * @methodOf ng.$compileProvider
+   * @ngdoc method
+   * @name $compileProvider#directive
    * @function
    *
    * @description
@@ -564,9 +563,8 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
 
   /**
-   * @ngdoc function
-   * @name ng.$compileProvider#aHrefSanitizationWhitelist
-   * @methodOf ng.$compileProvider
+   * @ngdoc method
+   * @name $compileProvider#aHrefSanitizationWhitelist
    * @function
    *
    * @description
@@ -595,9 +593,8 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
 
   /**
-   * @ngdoc function
-   * @name ng.$compileProvider#imgSrcSanitizationWhitelist
-   * @methodOf ng.$compileProvider
+   * @ngdoc method
+   * @name $compileProvider#imgSrcSanitizationWhitelist
    * @function
    *
    * @description
@@ -640,9 +637,8 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
 
       /**
-       * @ngdoc function
-       * @name ng.$compile.directive.Attributes#$addClass
-       * @methodOf ng.$compile.directive.Attributes
+       * @ngdoc method
+       * @name $compile.directive.Attributes#$addClass
        * @function
        *
        * @description
@@ -658,9 +654,8 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       },
 
       /**
-       * @ngdoc function
-       * @name ng.$compile.directive.Attributes#$removeClass
-       * @methodOf ng.$compile.directive.Attributes
+       * @ngdoc method
+       * @name $compile.directive.Attributes#$removeClass
        * @function
        *
        * @description
@@ -676,9 +671,8 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       },
 
       /**
-       * @ngdoc function
-       * @name ng.$compile.directive.Attributes#$updateClass
-       * @methodOf ng.$compile.directive.Attributes
+       * @ngdoc method
+       * @name $compile.directive.Attributes#$updateClass
        * @function
        *
        * @description
@@ -757,9 +751,8 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
 
       /**
-       * @ngdoc function
-       * @name ng.$compile.directive.Attributes#$observe
-       * @methodOf ng.$compile.directive.Attributes
+       * @ngdoc method
+       * @name $compile.directive.Attributes#$observe
        * @function
        *
        * @description
@@ -1941,7 +1934,7 @@ function directiveNormalize(name) {
 
 /**
  * @ngdoc object
- * @name ng.$compile.directive.Attributes
+ * @name $compile.directive.Attributes
  *
  * @description
  * A shared object between directive compile / linking functions which contains normalized DOM
@@ -1953,17 +1946,15 @@ function directiveNormalize(name) {
 
 /**
  * @ngdoc property
- * @name ng.$compile.directive.Attributes#$attr
- * @propertyOf ng.$compile.directive.Attributes
+ * @name $compile.directive.Attributes#$attr
  * @returns {object} A map of DOM element attribute names to the normalized name. This is
  *                   needed to do reverse lookup from normalized name back to actual name.
  */
 
 
 /**
- * @ngdoc function
- * @name ng.$compile.directive.Attributes#$set
- * @methodOf ng.$compile.directive.Attributes
+ * @ngdoc method
+ * @name $compile.directive.Attributes#$set
  * @function
  *
  * @description

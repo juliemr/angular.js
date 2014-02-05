@@ -61,8 +61,8 @@ function shallowClearAndCopy(src, dst) {
  */
 
 /**
- * @ngdoc object
- * @name ngResource.$resource
+ * @ngdoc service
+ * @name $resource
  * @requires $http
  *
  * @description

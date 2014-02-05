@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngNonBindable
+ * @name directive:ngNonBindable
  * @restrict AC
  * @priority 1000
  *

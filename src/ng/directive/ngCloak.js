@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngCloak
+ * @name directive:ngCloak
  * @restrict AC
  *
  * @description
