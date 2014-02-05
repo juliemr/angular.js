@@ -53,8 +53,8 @@
 
 
 /**
- * @ngdoc overview
- * @name AUTO
+ * @ngdoc module
+ * @name auto
  * @description
  *
  * Implicit module which gets automatically added to each {@link AUTO.$injector $injector}.

@@ -44,7 +44,7 @@ function shallowClearAndCopy(src, dst) {
 }
 
 /**
- * @ngdoc overview
+ * @ngdoc module
  * @name ngResource
  * @description
  *

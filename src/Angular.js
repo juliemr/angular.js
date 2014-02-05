@@ -90,6 +90,7 @@
 /**
  * @ngdoc module
  * @name ng
+ * @module ng
  * @description
  * 
  * # ng (core module)
