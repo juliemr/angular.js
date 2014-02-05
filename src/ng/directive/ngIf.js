@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngIf
+ * @name directive:ngIf
  * @restrict A
  *
  * @description

@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngHref
+ * @name directive:ngHref
  * @restrict A
  * @priority 99
  *
@@ -95,7 +95,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngSrc
+ * @name directive:ngSrc
  * @restrict A
  * @priority 99
  *
@@ -121,7 +121,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngSrcset
+ * @name directive:ngSrcset
  * @restrict A
  * @priority 99
  *
@@ -147,7 +147,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngDisabled
+ * @name directive:ngDisabled
  * @restrict A
  * @priority 100
  *
@@ -191,7 +191,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngChecked
+ * @name directive:ngChecked
  * @restrict A
  * @priority 100
  *
@@ -226,7 +226,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngReadonly
+ * @name directive:ngReadonly
  * @restrict A
  * @priority 100
  *
@@ -261,7 +261,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngSelected
+ * @name directive:ngSelected
  * @restrict A
  * @priority 100
  *
@@ -299,7 +299,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngOpen
+ * @name directive:ngOpen
  * @restrict A
  * @priority 100
  *

@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:ngTransclude
+ * @name directive:ngTransclude
  * @restrict AC
  *
  * @description

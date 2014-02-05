@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name ng.directive:a
+ * @name directive:a
  * @restrict E
  *
  * @description
