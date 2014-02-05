@@ -16,7 +16,7 @@ module.exports = function(config) {
   config.set('rendering.outputFolder', 'build');
   config.set('rendering.cleanOutputFolder', true);
 
-  config.set('logging.level', 'info');
+  config.set('logging.level', 'debug');
 
   config.merge('deployment', {
     environments: [{
