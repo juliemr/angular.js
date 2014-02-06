@@ -35,7 +35,7 @@ gulp.task('assets', ['bower', 'clean'], function() {
     gulp.src(bowerFolder + '/lunr.js/*.js').pipe(gulp.dest(outputFolder + '/components/lunr.js')),
     gulp.src(bowerFolder + '/google-code-prettify/**/*').pipe(gulp.dest(outputFolder + '/components/google-code-prettify/')),
     gulp.src(bowerFolder + '/jquery/*.js').pipe(gulp.dest(outputFolder + '/components/jquery')),
-    gulp.src('node_modules/marked/**/*.js').pipe(gulp.dest(outputFolder + '/components/marked'))
+    gulp.src('../node_modules/marked/**/*.js').pipe(gulp.dest(outputFolder + '/components/marked'))
   );
 });
 
