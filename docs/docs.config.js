@@ -1,5 +1,7 @@
 var _ = require('lodash');
 var path = require('canonical-path');
+var gitInfo = require('bike-shed/lib/utils/git-info');
+var gruntUtils = require('../lib/grunt/utils');
 var packagePath = __dirname;
 
 var basePackage = require('bike-shed/packages/docs.angularjs.org');
@@ -12,6 +14,17 @@ module.exports = function(config) {
     { pattern: 'src/**/*.js', basePath: path.resolve(packagePath,'..') },
     { pattern: '**/*.ngdoc', basePath: path.resolve(packagePath, 'content') }
   ]);
+
+  var version = gruntUtils.getVersion();
+  var versions = gruntUtils.getPreviousVersions();
+  config.set('source.currentVersion', version);
+  config.set('source.previousVersions', versions);
+
+  var package = require('../package.json');
+  config.merge('rendering.extra', {
+    git: gitInfo.getGitRepoInfo(package.repository.url),
+    version: version
+  });
 
   config.set('rendering.outputFolder', '../build/docs');
 
