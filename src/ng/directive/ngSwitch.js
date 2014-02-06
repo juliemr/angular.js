@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name directive:ngSwitch
+ * @name ngSwitch
  * @restrict EA
  *
  * @description

@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @ngdoc object
+ * @ngdoc service
  * @name $locale
  *
  * @description

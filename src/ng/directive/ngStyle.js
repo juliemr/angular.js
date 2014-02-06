@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name directive:ngStyle
+ * @name ngStyle
  * @restrict AC
  *
  * @description

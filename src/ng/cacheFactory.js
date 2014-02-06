@@ -192,7 +192,7 @@ function $CacheFactoryProvider() {
 }
 
 /**
- * @ngdoc object
+ * @ngdoc service
  * @name $templateCache
  *
  * @description

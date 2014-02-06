@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name directive:script
+ * @name script
  * @restrict E
  *
  * @description

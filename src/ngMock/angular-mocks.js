@@ -12,7 +12,7 @@ angular.mock = {};
 /**
  * ! This is a private undocumented service !
  *
- * @name ngMock.$browser
+ * @name $browser
  *
  * @description
  * This service is a mock implementation of {@link ng.$browser}. It provides fake
@@ -70,8 +70,7 @@ angular.mock.$Browser = function() {
 
 
   /**
-   * @name ngMock.$browser#defer.now
-   * @propertyOf ngMock.$browser
+   * @name $browser#defer.now
    *
    * @description
    * Current milliseconds mock time.
@@ -96,7 +95,7 @@ angular.mock.$Browser = function() {
 
 
   /**
-   * @name ngMock.$browser#defer.flush
+   * @name $browser#defer.flush
    *
    * @description
    * Flushes all pending requests and executes the defer callbacks.
@@ -127,7 +126,7 @@ angular.mock.$Browser = function() {
 angular.mock.$Browser.prototype = {
 
 /**
-  * @name ngMock.$browser#poll
+  * @name $browser#poll
   *
   * @description
   * run all fns in pollFns
@@ -426,7 +425,7 @@ angular.mock.$LogProvider = function() {
 
 /**
  * @ngdoc service
- * @name ngMock.$interval
+ * @name $interval
  *
  * @description
  * Mock implementation of the $interval service.
@@ -860,7 +859,7 @@ angular.mock.dump = function(object) {
 
 /**
  * @ngdoc service
- * @name ngMock.$httpBackend
+ * @name $httpBackend
  * @description
  * Fake HTTP backend implementation suitable for unit testing applications that use the
  * {@link ng.$http $http service}.

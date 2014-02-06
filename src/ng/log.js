@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @ngdoc object
+ * @ngdoc service
  * @name $log
  * @requires $window
  *
@@ -37,7 +37,7 @@
  */
 
 /**
- * @ngdoc object
+ * @ngdoc provider
  * @name $logProvider
  * @description
  * Use the `$logProvider` to configure how the application logs messages

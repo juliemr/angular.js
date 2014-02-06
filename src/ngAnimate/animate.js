@@ -235,7 +235,7 @@
 angular.module('ngAnimate', ['ng'])
 
   /**
-   * @ngdoc object
+   * @ngdoc provider
    * @name $animateProvider
    * @description
    *
@@ -347,7 +347,7 @@ angular.module('ngAnimate', ['ng'])
       }
 
       /**
-       * @ngdoc object
+       * @ngdoc service
        * @name $animate
        * @function
        *

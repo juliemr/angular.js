@@ -1135,7 +1135,7 @@ function encodeUriQuery(val, pctEncodeSpaces) {
 
 /**
  * @ngdoc directive
- * @name directive:ngApp
+ * @name ngApp
  * @module ng
  *
  * @element ANY

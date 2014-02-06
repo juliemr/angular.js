@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name directive:ngBind
+ * @name ngBind
  * @restrict AC
  *
  * @description
@@ -64,7 +64,7 @@ var ngBindDirective = ngDirective(function(scope, element, attr) {
 
 /**
  * @ngdoc directive
- * @name directive:ngBindTemplate
+ * @name ngBindTemplate
  *
  * @description
  * The `ngBindTemplate` directive specifies that the element
@@ -126,7 +126,7 @@ var ngBindTemplateDirective = ['$interpolate', function($interpolate) {
 
 /**
  * @ngdoc directive
- * @name directive:ngBindHtml
+ * @name ngBindHtml
  *
  * @description
  * Creates a binding that will innerHTML the result of evaluating the `expression` into the current

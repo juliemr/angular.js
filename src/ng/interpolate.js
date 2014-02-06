@@ -3,7 +3,7 @@
 var $interpolateMinErr = minErr('$interpolate');
 
 /**
- * @ngdoc object
+ * @ngdoc provider
  * @name $interpolateProvider
  * @function
  *
