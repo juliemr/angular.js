@@ -1,11 +1,9 @@
 var gulp = require('gulp');
-var gutil = require('gulp-util');
 var rimraf = require('gulp-rimraf');
 var concat = require('gulp-concat');
 var bower = require('bower');
 var docGenerator = require('bike-shed/lib/index');
 var merge = require('event-stream').merge;
-var express = require('express');
 
 
 // We indicate to gulp that tasks are async by returning the stream.
@@ -13,6 +11,7 @@ var express = require('express');
 // See clean and bower for async tasks, and see assets and doc-gen for dependent tasks below
 
 var outputFolder = '../build/docs';
+var bowerFolder = '../bower_components';
 
 gulp.task('clean', function() {
   return gulp.src(outputFolder, { read: false })
@@ -32,10 +31,10 @@ gulp.task('build-app', ['clean'], function() {
 gulp.task('assets', ['bower', 'clean'], function() {
   return merge(
     gulp.src(['app/assets/**/*']).pipe(gulp.dest(outputFolder)),
-    gulp.src('bower_components/open-sans-fontface/**/*').pipe(gulp.dest(outputFolder + '/components/open-sans-fontface')),
-    gulp.src('bower_components/lunr.js/*.js').pipe(gulp.dest(outputFolder + '/components/lunr.js')),
-    gulp.src('bower_components/google-code-prettify/**/*').pipe(gulp.dest(outputFolder + '/components/google-code-prettify/')),
-    gulp.src('bower_components/jquery/*.js').pipe(gulp.dest(outputFolder + '/components/jquery')),
+    gulp.src(bowerFolder + '/open-sans-fontface/**/*').pipe(gulp.dest(outputFolder + '/components/open-sans-fontface')),
+    gulp.src(bowerFolder + '/lunr.js/*.js').pipe(gulp.dest(outputFolder + '/components/lunr.js')),
+    gulp.src(bowerFolder + '/google-code-prettify/**/*').pipe(gulp.dest(outputFolder + '/components/google-code-prettify/')),
+    gulp.src(bowerFolder + '/jquery/*.js').pipe(gulp.dest(outputFolder + '/components/jquery')),
     gulp.src('node_modules/marked/**/*.js').pipe(gulp.dest(outputFolder + '/components/marked'))
   );
 });
@@ -49,37 +48,3 @@ gulp.task('doc-gen', ['clean'], function() {
 // The default task that will be run if no task is supplied
 gulp.task('default', ['assets', 'doc-gen', 'build-app']);
 
-
-// Watch the files and run the default task when something changes
-gulp.task('watch', function() {
-  return gulp.watch([
-    'content/**/*',
-    'src/**/*',
-    'app/**/*',
-    '../lib/**/*',
-    '../packages/**/*'
-  ], function() {
-    // I couldn't providing an array of tasks to run to work so had to go with a callback and gulp.run()
-    return gulp.run('default');
-  });
-});
-
-
-// A simple server that can cope with HTML5 deep links
-gulp.task('server', function() {
-  var port = 8000;
-  var build = gulp.env.type || 'default';
-  var indexPage = 'index' + (build === 'default' ? '' : '-' + build) + '.html';
-  var app = express();
-  // Log requests to the console
-  app.use(express.logger());
-  // If the file exists then supply it
-  app.use(express.static(outputFolder));
-  // Otherwise just send the index.html for other files to support HTML5Mode
-  app.all('/*', function(req, res) {
-    res.sendfile(indexPage, { root: outputFolder });
-  });
-  app.listen(port, function() {
-    gutil.log('Server listening on port', gutil.colors.magenta(port));
-  });
-});
