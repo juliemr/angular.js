@@ -46,6 +46,7 @@
     "browserstacktunnel-wrapper": "~1.1.1",
     "grunt-jscs-checker": "~0.3.2",
     "jasmine-reporters": "~0.2.1"
+    "bike-shed": "git://github.com/angular/bike-shed.git"
   },
   "licenses": [
     {
