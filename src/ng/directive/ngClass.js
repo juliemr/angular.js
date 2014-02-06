@@ -64,7 +64,7 @@ function classDirective(name, selector) {
 
 /**
  * @ngdoc directive
- * @name directive:ngClass
+ * @name ngClass
  * @restrict AC
  *
  * @description
@@ -198,7 +198,7 @@ var ngClassDirective = classDirective('', true);
 
 /**
  * @ngdoc directive
- * @name directive:ngClassOdd
+ * @name ngClassOdd
  * @restrict AC
  *
  * @description
@@ -246,7 +246,7 @@ var ngClassOddDirective = classDirective('Odd', 0);
 
 /**
  * @ngdoc directive
- * @name directive:ngClassEven
+ * @name ngClassEven
  * @restrict AC
  *
  * @description

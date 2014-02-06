@@ -1124,7 +1124,7 @@ function getterFn(path, options, fullExp) {
 
 
 /**
- * @ngdoc object
+ * @ngdoc provider
  * @name $parseProvider
  * @function
  *

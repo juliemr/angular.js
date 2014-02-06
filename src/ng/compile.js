@@ -1933,7 +1933,7 @@ function directiveNormalize(name) {
 }
 
 /**
- * @ngdoc object
+ * @ngdoc type
  * @name $compile.directive.Attributes
  *
  * @description

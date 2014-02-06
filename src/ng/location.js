@@ -486,7 +486,7 @@ function locationGetterSetter(property, preprocess) {
 
 
 /**
- * @ngdoc object
+ * @ngdoc service
  * @name $location
  *
  * @requires $browser
@@ -559,7 +559,6 @@ function $LocationProvider(){
   /**
    * @ngdoc event
    * @name $location#$locationChangeStart
-   * @eventOf ng.$location
    * @eventType broadcast on root scope
    * @description
    * Broadcasted before a URL will change. This change can be prevented by calling
@@ -575,7 +574,6 @@ function $LocationProvider(){
   /**
    * @ngdoc event
    * @name $location#$locationChangeSuccess
-   * @eventOf ng.$location
    * @eventType broadcast on root scope
    * @description
    * Broadcasted after a URL was changed.

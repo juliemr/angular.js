@@ -843,7 +843,7 @@ var VALID_CLASS = 'ng-valid',
     DIRTY_CLASS = 'ng-dirty';
 
 /**
- * @ngdoc object
+ * @ngdoc type
  * @name ngModel.NgModelController
  *
  * @property {string} $viewValue Actual string value in the view.
@@ -1183,7 +1183,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
 
 /**
  * @ngdoc directive
- * @name directive:ngModel
+ * @name ngModel
  *
  * @element input
  *
@@ -1244,7 +1244,7 @@ var ngModelDirective = function() {
 
 /**
  * @ngdoc directive
- * @name directive:ngChange
+ * @name ngChange
  *
  * @description
  * Evaluate the given expression when the user changes the input.
@@ -1340,7 +1340,7 @@ var requiredDirective = function() {
 
 /**
  * @ngdoc directive
- * @name directive:ngList
+ * @name ngList
  *
  * @description
  * Text input that converts between a delimited string and an array of strings. The delimiter
@@ -1435,7 +1435,7 @@ var ngListDirective = function() {
 var CONSTANT_VALUE_REGEXP = /^(true|false|\d+)$/;
 /**
  * @ngdoc directive
- * @name directive:ngValue
+ * @name ngValue
  *
  * @description
  * Binds the given expression to the value of `input[select]` or `input[radio]`, so

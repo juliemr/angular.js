@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name directive:ngController
+ * @name ngController
  *
  * @description
  * The `ngController` directive attaches a controller class to the view. This is a key aspect of how angular
