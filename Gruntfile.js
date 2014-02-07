@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     parallel: {
       travis: {
         tasks: [
-          util.parallelTask(['test:unit', 'test:docgen', 'test:promises-aplus', 'tests:docs'], {stream: true}),
+          util.parallelTask(['test:unit', 'test:promises-aplus', 'tests:docs'], {stream: true}),
           util.parallelTask(['test:e2e'])
         ]
       }
@@ -296,7 +296,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test:jq-protractor', 'Run the end to end tests against jquery with Protractor and keep a test server running in the background', ['webdriver', 'connect:testserver', 'protractor:jquery']);
   grunt.registerTask('test:ci-protractor', 'Run the end to end tests with Protractor and keep a test server running in the background', ['webdriver', 'connect:testserver', 'protractor:jenkins']);
   grunt.registerTask('test:e2e', 'Alias for test:protractor', ['test:protractor']);
-  grunt.registerTask('test:docgen', ['jasmine_node']);
   grunt.registerTask('test:promises-aplus',['build:promises-aplus-adapter','shell:promises-aplus-tests']);
 
   grunt.registerTask('minify', ['bower','clean', 'build', 'minall']);
