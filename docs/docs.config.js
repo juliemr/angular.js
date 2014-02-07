@@ -1,10 +1,9 @@
 var _ = require('lodash');
 var path = require('canonical-path');
-var gitInfo = require('bike-shed/lib/utils/git-info');
 var gruntUtils = require('../lib/grunt/utils');
 var packagePath = __dirname;
 
-var basePackage = require('bike-shed/packages/docs.angularjs.org');
+var basePackage = require('dgeni/packages/docs.angularjs.org');
 
 module.exports = function(config) {
 
@@ -20,9 +19,8 @@ module.exports = function(config) {
   config.set('source.currentVersion', version);
   config.set('source.previousVersions', versions);
 
-  var package = require('../package.json');
   config.merge('rendering.extra', {
-    git: gitInfo.getGitRepoInfo(package.repository.url),
+    git: gruntUtils.getGitRepoInfo(),
     version: version
   });
 

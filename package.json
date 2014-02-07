@@ -45,7 +45,7 @@
     "browserstacktunnel-wrapper": "~1.1.1",
     "grunt-jscs-checker": "~0.3.2",
     "jasmine-reporters": "~0.2.1"
-    "bike-shed": "git://github.com/angular/bike-shed.git",
+    "dgeni": "git://github.com/angular/bike-shed.git",
     "gulp": "~3.4.0",
     "gulp-rimraf": "0.0.8",
     "event-stream": "~3.1.0",

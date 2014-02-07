@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var rimraf = require('gulp-rimraf');
 var concat = require('gulp-concat');
 var bower = require('bower');
-var docGenerator = require('bike-shed/lib/index');
+var docGenerator = require('dgeni');
 var merge = require('event-stream').merge;
 
 
