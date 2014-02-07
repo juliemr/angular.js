@@ -19,6 +19,11 @@ module.exports = function(config) {
   config.set('source.currentVersion', version);
   config.set('source.previousVersions', versions);
 
+  config.set('processing.examples.commonFiles', {
+    scripts: [ '../../../angular.js' ],
+    stylesheets: []
+  });
+
   config.merge('rendering.extra', {
     git: gruntUtils.getGitRepoInfo(),
     version: version
