@@ -1,17 +1,16 @@
-var _ = require('lodash');
 var path = require('canonical-path');
 var gruntUtils = require('../lib/grunt/utils');
-var packagePath = __dirname;
+var basePath = __dirname;
 
-var basePackage = require('dgeni/packages/docs.angularjs.org');
+var basePackage = require('./config');
 
 module.exports = function(config) {
 
   config = basePackage(config);
 
   config.set('source.files', [
-    { pattern: 'src/**/*.js', basePath: path.resolve(packagePath,'..') },
-    { pattern: '**/*.ngdoc', basePath: path.resolve(packagePath, 'content') }
+    { pattern: 'src/**/*.js', basePath: path.resolve(basePath,'..') },
+    { pattern: '**/*.ngdoc', basePath: path.resolve(basePath, 'content') }
   ]);
 
   var version = gruntUtils.getVersion();
