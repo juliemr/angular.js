@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var rimraf = require('gulp-rimraf');
 var concat = require('gulp-concat');
 var bower = require('bower');
 var docGenerator = require('dgeni');
@@ -13,22 +12,17 @@ var merge = require('event-stream').merge;
 var outputFolder = '../build/docs';
 var bowerFolder = '../bower_components';
 
-gulp.task('clean', function() {
-  return gulp.src(outputFolder, { read: false })
-  .pipe(rimraf());
-});
-
 gulp.task('bower', function() {
   return bower.commands.install();
 });
 
-gulp.task('build-app', ['clean'], function() {
+gulp.task('build-app', function() {
   gulp.src('app/src/**/*.js')
     .pipe(concat('docs.js'))
     .pipe(gulp.dest(outputFolder + '/js/'));
 });
 
-gulp.task('assets', ['bower', 'clean'], function() {
+gulp.task('assets', ['bower'], function() {
   return merge(
     gulp.src(['app/assets/**/*']).pipe(gulp.dest(outputFolder)),
     gulp.src(bowerFolder + '/open-sans-fontface/**/*').pipe(gulp.dest(outputFolder + '/components/open-sans-fontface')),
@@ -40,7 +34,7 @@ gulp.task('assets', ['bower', 'clean'], function() {
 });
 
 
-gulp.task('doc-gen', ['clean'], function() {
+gulp.task('doc-gen', function() {
   return docGenerator('docs.config.js').generateDocs();
 });
 
