@@ -5,6 +5,8 @@ var trimIndentation = require('dgeni/lib/utils/trim-indentation');
 var code = require('dgeni/lib/utils/code');
 var protractorFolder;
 
+var x = 0;
+
 module.exports = {
   name: 'protractor-generate',
   description: 'Generate a protractor test file from the e2e tests in the examples',
@@ -23,6 +25,11 @@ module.exports = {
           return;
         }
 
+        if (x == 0) {
+          x = 1;
+          console.log(require('util').inspect(example));
+        }
+
         // Create a new file for the test.
         // TODO - at the moment, only jqLite is being used. Will need to generate
         // another doc for jQuery if we want to test against that.
@@ -37,7 +44,7 @@ module.exports = {
         };
 
         protractorDoc.describeBlock = {
-          path: example.doc.path,
+          path: example.outputFolder + '/index.html'
         }
 
         docs.push(protractorDoc);
