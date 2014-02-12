@@ -2,7 +2,7 @@ var _ = require('lodash');
 var path = require('canonical-path');
 var packagePath = __dirname;
 
-var angularjsPackage = require('dgeni-ngdoc');
+var angularjsPackage = require('dgeni-packages/ngdoc');
 
 module.exports = function(config) {
 
