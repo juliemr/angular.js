@@ -40,12 +40,10 @@ module.exports = {
           outputPath: path.join(protractorFolder, example.id, 'jqlite' + '_test.js'),
           innerTest: file.fileContents,
           pathPrefix: '.', // Hold for if we test with full jQuery
-          exampleId: example.id
+          exampleId: example.id,
+          description: example.doc.id,
+          examplePath: example.outputFolder + '/index.html'
         };
-
-        protractorDoc.describeBlock = {
-          path: example.outputFolder + '/index.html'
-        }
 
         docs.push(protractorDoc);
       });
