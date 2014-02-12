@@ -108,7 +108,7 @@
       }
     </file>
     <file name="protractorTest.js">
-      var switchElem = element(by.css('.doc-example-live [ng-switch]'));
+      var switchElem = element(by.css('[ng-switch]'));
       var select = element(by.model('selection'));
 
       it('should start in settings', function() {

@@ -115,7 +115,7 @@ function classDirective(name, selector) {
        }
      </file>
      <file name="protractorTest.js">
-       var ps = element.all(by.css('.doc-example-live p'));
+       var ps = element.all(by.css('p'));
 
        it('should let you toggle the class', function() {
 

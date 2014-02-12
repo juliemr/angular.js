@@ -173,8 +173,7 @@
       }
     </file>
     <file name="protractorTest.js">
-      var friends = element(by.css('.doc-example-live'))
-          .element.all(by.repeater('friend in friends'));
+      var friends = element.all(by.repeater('friend in friends'));
 
       it('should render initial data set', function() {
         expect(friends.count()).toBe(10);
@@ -188,7 +187,7 @@
        it('should update repeater when filter predicate changes', function() {
          expect(friends.count()).toBe(10);
 
-         element(by.css('.doc-example-live')).element(by.model('q')).sendKeys('ma');
+         element(by.model('q')).sendKeys('ma');
 
          expect(friends.count()).toBe(2);
          expect(friends.get(0).getText()).toEqual('[1] Mary who is 28 years old.');

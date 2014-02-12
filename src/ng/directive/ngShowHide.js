@@ -133,8 +133,8 @@
       }
     </file>
     <file name="protractorTest.js">
-      var thumbsUp = element(by.css('.doc-example-live span.icon-thumbs-up'));
-      var thumbsDown = element(by.css('.doc-example-live span.icon-thumbs-down'));
+      var thumbsUp = element(by.css('span.icon-thumbs-up'));
+      var thumbsDown = element(by.css('span.icon-thumbs-down'));
 
       it('should check ng-show / ng-hide', function() {
         expect(thumbsUp.isDisplayed()).toBeFalsy();
@@ -290,8 +290,8 @@ var ngShowDirective = ['$animate', function($animate) {
       }
     </file>
     <file name="protractorTest.js">
-      var thumbsUp = element(by.css('.doc-example-live span.icon-thumbs-up'));
-      var thumbsDown = element(by.css('.doc-example-live span.icon-thumbs-down'));
+      var thumbsUp = element(by.css('span.icon-thumbs-up'));
+      var thumbsDown = element(by.css('span.icon-thumbs-down'));
 
       it('should check ng-show / ng-hide', function() {
         expect(thumbsUp.isDisplayed()).toBeFalsy();
