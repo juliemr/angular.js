@@ -249,7 +249,7 @@ the `$digest` phase. This delay is desirable, since it coalesces multiple model 
   1. **Creation**
 
      The {@link ng.$rootScope root scope} is created during the application
-     bootstrap by the {@link AUTO.$injector $injector}. During template
+     bootstrap by the {@link auto.$injector $injector}. During template
      linking, some directives create new child scopes.
 
   2. **Watcher registration**

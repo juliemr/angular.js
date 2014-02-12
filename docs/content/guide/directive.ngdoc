@@ -185,7 +185,7 @@ options to tell `$compile` how the directive should behave when matched.
 The factory function is invoked only once when the
 {@link ng.$compile compiler} matches the directive for the first time. You can perform any
 initialization work here. The function is invoked using
-{@link AUTO.$injector#methods_invoke $injector.invoke} which makes it injectable just like a
+{@link auto.$injector#methods_invoke $injector.invoke} which makes it injectable just like a
 controller.
 
 <div class="alert alert-success">

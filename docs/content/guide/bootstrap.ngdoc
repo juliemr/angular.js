@@ -59,7 +59,7 @@ for the {@link ng.directive:ngApp `ng-app`} directive which designates your appl
 If the {@link ng.directive:ngApp `ng-app`} directive is found then Angular will:
 
   * load the {@link guide/module module} associated with the directive.
-  * create the application {@link AUTO.$injector injector}
+  * create the application {@link auto.$injector injector}
   * compile the DOM treating the {@link ng.directive:ngApp
     `ng-app`} directive as the root of the compilation. This allows you to tell it to treat only a
     portion of the DOM as an Angular application.

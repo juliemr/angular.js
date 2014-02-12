@@ -6,7 +6,7 @@
 
 Each web application you build is composed of objects that collaborate to get stuff done. These
 objects need to be instantiated and wired together for the app to work. In Angular apps most of
-these objects are instantiated and wired together automatically by the {@link AUTO.$injector
+these objects are instantiated and wired together automatically by the {@link auto.$injector
 injector service}.
 
 The injector creates two types of objects, **services** and **specialized objects**.
