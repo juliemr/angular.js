@@ -24,22 +24,21 @@ module.exports = {
         }
 
         // Create a new file for the test.
-        // TODO - generate one for jqLite and one for jQuery
+        // TODO - at the moment, only jqLite is being used. Will need to generate
+        // another doc for jQuery if we want to test against that.
         var protractorDoc = {
           docType: 'e2e-test',
           id: 'protractorTest' + '-' + example.id,
           template: 'protractorTests.template.js',
           outputPath: path.join(protractorFolder, example.id, 'jqlite' + '_test.js'),
           innerTest: file.fileContents,
-          pathPrefix: '' // jqlite jquery stuff goes here?
+          pathPrefix: '.', // Hold for if we test with full jQuery
+          exampleId: example.id
         };
 
-        // TODO - figure out where this info is stored - this isn't precisely right.
         protractorDoc.describeBlock = {
           path: example.doc.path,
         }
-
-        // TODO - add a beforeEach block which switches focus to the iframe.
 
         docs.push(protractorDoc);
       });
