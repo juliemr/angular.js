@@ -5,8 +5,6 @@ var trimIndentation = require('dgeni/lib/utils/trim-indentation');
 var code = require('dgeni/lib/utils/code');
 var protractorFolder;
 
-var x = 0;
-
 module.exports = {
   name: 'protractor-generate',
   description: 'Generate a protractor test file from the e2e tests in the examples',
@@ -23,11 +21,6 @@ module.exports = {
         // Check if it's a Protractor test.
         if (!(file.type == 'protractor')) {
           return;
-        }
-
-        if (x == 0) {
-          x = 1;
-          console.log(require('util').inspect(example));
         }
 
         // Create a new file for the test.
