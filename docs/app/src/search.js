@@ -95,7 +95,7 @@ angular.module('search', [])
       var key = result.ref;
       var item = NG_PAGES[key];
       var area = item.area;
-      item.path = '/' + key;
+      item.path = key;
 
       var limit = area == 'api' ? 40 : 14;
       if(results[area].length < limit) {
