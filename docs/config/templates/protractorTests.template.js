@@ -1,12 +1,12 @@
-{% for describeBlock in desribeBlocks -%}
-describe("{$ describeBlock.section $}/{$ describeBlock.id $}", function() {
+describe("{$ doc.describeBlock.section $}/{$ doc.describeBlock.id $}", function() {
   beforeEach(function() {
-    browser.get("{$ pathPrefix $}/{$ describeBlock.section $}/{$ describeBlock.id $}");
+    browser.get("{$ doc.pathPrefix $}/{$ doc.describeBlock.path $}");
   });
 
-  {% for itClause in describeBlock.itClauses %}
-    {$ itClause.code $}
-  {% endfor %}  
+  beforeEach(function() {
+    // This will switch to the iFrame.
+  })
+
+{$ doc.innerTest $}  
   });
 });
-{%- endfor %}
