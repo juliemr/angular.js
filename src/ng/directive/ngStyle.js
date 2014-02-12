@@ -27,7 +27,7 @@
          color: black;
        }
      </file>
-     <file name="protractorTest.js">
+     <file name="protractor.js" type="protractor">
        var colorSpan = element(by.css('span'));
 
        it('should check ng-style', function() {

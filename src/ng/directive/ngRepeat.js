@@ -172,7 +172,7 @@
         max-height:40px;
       }
     </file>
-    <file name="protractorTest.js">
+    <file name="protractor.js" type="protractor">
       var friends = element.all(by.repeater('friend in friends'));
 
       it('should render initial data set', function() {

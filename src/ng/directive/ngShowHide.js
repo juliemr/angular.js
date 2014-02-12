@@ -132,7 +132,7 @@
         background:white;
       }
     </file>
-    <file name="protractorTest.js">
+    <file name="protractor.js" type="protractor">
       var thumbsUp = element(by.css('span.icon-thumbs-up'));
       var thumbsDown = element(by.css('span.icon-thumbs-down'));
 
@@ -289,7 +289,7 @@ var ngShowDirective = ['$animate', function($animate) {
         background:white;
       }
     </file>
-    <file name="protractorTest.js">
+    <file name="protractor.js" type="protractor">
       var thumbsUp = element(by.css('span.icon-thumbs-up'));
       var thumbsDown = element(by.css('span.icon-thumbs-down'));
 
