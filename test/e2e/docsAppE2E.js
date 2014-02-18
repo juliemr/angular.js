@@ -15,7 +15,7 @@ describe('docs.angularjs.org', function () {
 
     it('should change the page content when clicking a link to a service', function () {
       browser.get('');
-
+      // browser.sleep(7000);
       var ngBindLink = element(by.css('.definition-table td a[href="api/ng/directive/ngClick"]'));
       ngBindLink.click();
 
@@ -27,7 +27,7 @@ describe('docs.angularjs.org', function () {
     it('should show the functioning input directive example', function () {
       browser.get('index-debug.html#!/api/ng/directive/input');
 
-      //Wait for animation
+      // Wait for animation
       browser.sleep(500);
 
       browser.switchTo().frame('example-input-directive');

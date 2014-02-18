@@ -8,8 +8,11 @@ exports.config = {
 
   capabilities: {
     'browserName': 'chrome',
-    'name': 'Angular E2E: jquery'
+    'name': 'Angular E2E: jquery',
+    'platform': 'OS X 10.9'
   },
+
+  // seleniumAddress: 'http://localhost:4444/wd/hub',
 
   baseUrl: 'http://localhost:8000/build/docs/',
 
