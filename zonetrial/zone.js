@@ -1,5 +1,5 @@
 'use strict';
-
+var GLOBAL_ZONE_ID = 0;
 
 function Zone(parentZone, data) {
   var zone = (arguments.length) ? Object.create(parentZone) : this;
@@ -10,6 +10,8 @@ function Zone(parentZone, data) {
     zone[property] = data[property];
   });
 
+  zone.id = GLOBAL_ZONE_ID++;
+
   return zone;
 }
 
@@ -17,7 +19,13 @@ function Zone(parentZone, data) {
 Zone.prototype = {
   constructor: Zone,
 
+  // Zones know about parents but not about children. So, there's not really
+  // any good way for a zone to know if everything associated with it is done
+  // or not.
+  // We could modify the patching functions to keep track of the # of outstanding
+  // things.
   fork: function (locals) {
+    console.log('forking zone ' + this.id.toString());
     return new Zone(this, locals);
   },
 
@@ -54,11 +62,18 @@ Zone.prototype = {
   onZoneLeave: function () {}
 };
 
+// obj == window, fnNames = ['setTimeout', 'setInterval']
 Zone.patchFn = function (obj, fnNames) {
   fnNames.forEach(function (name) {
     var delegate = obj[name];
+    // ^ window.setTimeout;
+    // zone.setTimeout
     zone[name] = function () {
       arguments[0] = zone.bind(arguments[0]);
+      // arguments[0] is the function
+      // zone.bind makes a new fork of the zone (which might not actually create a new zone??)
+      //  and runs the function in it
+      // remember that making a new fork calls onZoneEnter
       return delegate.apply(obj, arguments);
     };
 

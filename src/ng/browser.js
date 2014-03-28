@@ -33,33 +33,52 @@ function Browser(window, document, $log, $sniffer) {
 
   self.isMock = false;
 
+  self.zones = [];
+
+  self.outstanding = 0;
+
+  self.$$runInNewZone = function(fn) {
+    var newZone = zone.fork({
+      onZoneEnter: function() {
+        self.outstanding++;
+        console.log('zone ' + this.id.toString() + ' enter, outstanding: ' + self.outstanding);
+      },
+      onZoneLeave: function() {
+        self.outstanding--;
+        console.log('zone ' + this.id.toString() + ' leave, outstanding: ' + self.outstanding);
+        // If outstanding == 0, do stuff here
+      }
+    }).run(fn);
+    self.zones.push(newZone);
+  };
+
   var outstandingRequestCount = 0;
   var outstandingRequestCallbacks = [];
 
   // TODO(vojta): remove this temporary api
-  self.$$completeOutstandingRequest = completeOutstandingRequest;
-  self.$$incOutstandingRequestCount = function() { outstandingRequestCount++; };
+  // self.$$completeOutstandingRequest = completeOutstandingRequest;
+  // self.$$incOutstandingRequestCount = function() { outstandingRequestCount++; };
 
   /**
    * Executes the `fn` function(supports currying) and decrements the `outstandingRequestCallbacks`
    * counter. If the counter reaches 0, all the `outstandingRequestCallbacks` are executed.
    */
-  function completeOutstandingRequest(fn) {
-    try {
-      fn.apply(null, sliceArgs(arguments, 1));
-    } finally {
-      outstandingRequestCount--;
-      if (outstandingRequestCount === 0) {
-        while(outstandingRequestCallbacks.length) {
-          try {
-            outstandingRequestCallbacks.pop()();
-          } catch (e) {
-            $log.error(e);
-          }
-        }
-      }
-    }
-  }
+  // function completeOutstandingRequest(fn) {
+  //   try {
+  //     fn.apply(null, sliceArgs(arguments, 1));
+  //   } finally {
+  //     outstandingRequestCount--;
+  //     if (outstandingRequestCount === 0) {
+  //       while(outstandingRequestCallbacks.length) {
+  //         try {
+  //           outstandingRequestCallbacks.pop()();
+  //         } catch (e) {
+  //           $log.error(e);
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   /**
    * @private
@@ -344,11 +363,14 @@ function Browser(window, document, $log, $sniffer) {
    */
   self.defer = function(fn, delay) {
     var timeoutId;
-    outstandingRequestCount++;
-    timeoutId = setTimeout(function() {
-      delete pendingDeferIds[timeoutId];
-      completeOutstandingRequest(fn);
-    }, delay || 0);
+    self.$$runInNewZone(function() {
+    // outstandingRequestCount++;
+      timeoutId = setTimeout(function() {
+        console.log('running a defer');
+        delete pendingDeferIds[timeoutId];
+        fn();
+      }, delay || 0);
+    });
     pendingDeferIds[timeoutId] = true;
     return timeoutId;
   };
@@ -368,7 +390,8 @@ function Browser(window, document, $log, $sniffer) {
     if (pendingDeferIds[deferId]) {
       delete pendingDeferIds[deferId];
       clearTimeout(deferId);
-      completeOutstandingRequest(noop);
+      // TODO do something here to kill the zone?
+      // completeOutstandingRequest(noop);
       return true;
     }
     return false;
