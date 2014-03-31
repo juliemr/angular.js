@@ -63,8 +63,15 @@ module.exports = function(grunt) {
                 if (req.method === 'GET') {
                   resp.setHeader('Cache-control', 'public, max-age=3600');
                 }
-
-                next();
+                if (req.path == '/fastcall') {
+                  res.send(200, 'done');
+                } else if (req.path == '/slowcall') {
+                  setTimeout(function() {
+                    res.send(200, 'finally done');
+                  }, 2000);
+                } else {
+                  next();
+                }
               },
               connect.favicon('images/favicon.ico'),
               connect.static(options.base)
