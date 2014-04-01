@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['ngRoute', 'myApp.appVersion']).
+angular.module('myApp', ['ngRoute']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/async', {templateUrl: 'async/async.html', controller: AsyncCtrl});
     $routeProvider.when('/slowloader', {

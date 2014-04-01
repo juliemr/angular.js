@@ -59,6 +59,7 @@ module.exports = function(grunt) {
           middleware: function(connect, options){
             return [
               function(req, resp, next) {
+                console.log('req.path: ' + req.path);
                 // cache get requests to speed up tests on travis
                 if (req.method === 'GET') {
                   resp.setHeader('Cache-control', 'public, max-age=3600');
