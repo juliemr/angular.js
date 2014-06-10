@@ -1455,6 +1455,19 @@ function bootstrap(element, modules, config) {
   };
 }
 
+/**
+ * @ngdoc function
+ * @name angular.getTestability
+ * @module ng
+ * @description
+ * Get the testability service for the instance of Angular on the given
+ * element.
+ * @param {DOMElement} element DOM element which is the root of angular application.
+ */
+function getTestability(rootElement) {
+  return angular.element(rootElement).injector().get('$testability');
+}
+
 var SNAKE_CASE_REGEXP = /[A-Z]/g;
 function snake_case(name, separator) {
   separator = separator || '_';

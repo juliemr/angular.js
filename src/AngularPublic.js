@@ -130,6 +130,7 @@ function publishExternalAPI(angular){
     'lowercase': lowercase,
     'uppercase': uppercase,
     'callbacks': {counter: 0},
+    'getTestability': getTestability,
     '$$minErr': minErr,
     '$$csp': csp
   });
