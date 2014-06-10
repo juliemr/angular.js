@@ -14,7 +14,7 @@ ddescribe('$testability', function() {
     }));
 
     afterEach(function() {
-      scope.$destroy();
+      dealoc(element);
     });
 
     it('should find partial bindings', function() {
@@ -37,33 +37,84 @@ ddescribe('$testability', function() {
           '  <span>{{username}}</span>' +
           '</div>';
       element = $compile(element)(scope);
-      var users = $testability.findBindings(element[0], 'username', true);
+      var users = $testability.findBindings(element[0], 'name', true);
       expect(users.length).toBe(1);
-      expect(users[0]).toBe(element.find('span')[1]);
+      expect(users[0]).toBe(element.find('span')[0]);
     });
 
-    it('should find findings by class', function() {
+    it('should find bindings by class', function() {
       element =
           '<div>' +
           '  <span ng-bind="name"></span>' +
           '  <span>{{username}}</span>' +
           '</div>';
       element = $compile(element)(scope);
-      var users = $testability.findBindings(element[0], 'username', true);
-      expect(users.length).toBe(1);
-      expect(users[0]).toBe(element.find('span')[1]);
+      var names = $testability.findBindings(element[0], 'name');
+      expect(names.length).toBe(2);
+      expect(names[0]).toBe(element.find('span')[0]);
+      expect(names[1]).toBe(element.find('span')[1]);
     });
 
     it('should only search within the context element', function() {
       element =
           '<div>' +
-          '  <div><span>{{name}}</span></div>' +
-          '  <div><span>{{name}}</span></div>' +
+          '  <ul><li>{{name}}</li></ul>' +
+          '  <ul><li>{{name}}</li></ul>' +
           '</div>';
       element = $compile(element)(scope);
-      var users = $testability.findBindings(element.find('div')[0], 'username', true);
+      var names = $testability.findBindings(element.find('ul')[0], 'name');
+      expect(names.length).toBe(1);
+      expect(names[0]).toBe(element.find('li')[0]);
+    });
+
+    it('should find partial models', function() {
+      element =
+          '<div>' +
+          '  <input type="text" ng-model="name"/>' +
+          '  <input type="text" ng-model="username"/>' +
+          '</div>';
+      element = $compile(element)(scope);
+      var names = $testability.findModels(element[0], 'name');
+      expect(names.length).toBe(2);
+      expect(names[0]).toBe(element.find('input')[0]);
+      expect(names[1]).toBe(element.find('input')[1]);
+    });
+
+    it('should find exact models', function() {
+      element =
+          '<div>' +
+          '  <input type="text" ng-model="name"/>' +
+          '  <input type="text" ng-model="username"/>' +
+          '</div>';
+      element = $compile(element)(scope);
+      var users = $testability.findModels(element[0], 'name', true);
       expect(users.length).toBe(1);
-      expect(users[0]).toBe(element.find('span')[1]);
+      expect(users[0]).toBe(element.find('input')[0]);
+    });
+
+    it('should find models in different input types', function() {
+      element =
+          '<div>' +
+          '  <input type="text" ng-model="name"/>' +
+          '  <textarea ng-model="username"/>' +
+          '</div>';
+      element = $compile(element)(scope);
+      var names = $testability.findModels(element[0], 'name');
+      expect(names.length).toBe(2);
+      expect(names[0]).toBe(element.find('input')[0]);
+      expect(names[1]).toBe(element.find('textarea')[0]);
+    });
+
+    it('should only search for models within the context element', function() {
+      element =
+          '<div>' +
+          '  <ul><li><input type="text" ng-model="name"/></li></ul>' +
+          '  <ul><li><input type="text" ng-model="name"/></li></ul>' +
+          '</div>';
+      element = $compile(element)(scope);
+      var names = $testability.findModels(element.find('ul')[0], 'name');
+      expect(names.length).toBe(1);
+      expect(names[0]).toBe(angular.element(element.find('li')[0]).find('input')[0]);
     });
   });
 
