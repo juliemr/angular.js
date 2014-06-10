@@ -2,7 +2,7 @@
 
 ddescribe('$testability', function() {
   describe('allow animations', function() {
-
+    // TODO
   });
 
   describe('finding elements', function() {
@@ -119,14 +119,34 @@ ddescribe('$testability', function() {
   });
 
   describe('location', function() {
+    beforeEach(module(function() {
+      return function($httpBackend) {
+        $httpBackend.when('GET', 'test.html').respond('test');
+        $httpBackend.when('GET', 'foo.html').respond('foo');
+        $httpBackend.when('GET', 'baz.html').respond('baz');
+        $httpBackend.when('GET', 'bar.html').respond('bar');
+        $httpBackend.when('GET', '404.html').respond('not found');
+      };
+    }));
 
+    it('should return the current URL', inject(function($location, $testability) {
+      $location.path('/bar.html');
+      expect($testability.getLocation()).toMatch(/bar.html$/);
+    }));
+
+    it('should change the URL', inject(function($location, $testability) {
+      $location.path('/bar.html');
+      $testability.setLocation('foo.html');
+      expect($location.path()).toEqual('/foo.html');
+    }));
   });
 
-  xdescribe('outstading requests', function() {
-    it('should process callbacks immedietly with no outstanding requests', function() {
-      var callback = jasmine.createSpy('callback');
-      $testability.notifyWhenNoOutstandingRequests(callback);
-      expect(callback).toHaveBeenCalled();
-    });
+  describe('waiting for stability', function() {
+    it('should process callbacks immediately with no outstanding requests',
+      inject(function($testability) {
+        var callback = jasmine.createSpy('callback');
+        $testability.notifyWhenStable(callback);
+        expect(callback).toHaveBeenCalled();
+      }));
   });
 });

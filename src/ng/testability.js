@@ -81,8 +81,8 @@ function $TestabilityProvider() {
      * Shortcut for navigating to a location without doing a full page reload.
      */
     testability.setLocation = function(path) {
-      if (url !== $location.url()) {
-        $location.url(url);
+      if (path !== $location.path()) {
+        $location.path(path);
         $rootScope.$digest();
       }
     };
@@ -91,10 +91,9 @@ function $TestabilityProvider() {
      * Calls the callback when $timeout and $http
      * requests are completed. Move from $browser
      */
-    testability.notifyWhenStable = function(path, callback) {
-
+    testability.notifyWhenStable = function(callback) {
+      $browser.notifyWhenNoOutstandingRequests(callback);
     };
-
 
     return testability;
   }];
